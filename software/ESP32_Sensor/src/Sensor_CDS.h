@@ -1,8 +1,13 @@
 #pragma once
 #include <Arduino.h>
 
-struct Sensor_CDS {
-    float cds;
-};
+class Sensor_CDS {
+    private:
+        int cds;
+        int PIN_NUM;
+        int error_count;
 
-void read_CDS(Sensor_CDS& data);
+    public:
+        Sensor_CDS(int pin);
+        void read();
+};

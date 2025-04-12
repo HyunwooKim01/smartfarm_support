@@ -28,7 +28,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("]: ");
   Serial.println(message);
 
-  if (String(topic) == "esp32/control") {
+  if (String(topic) == "actuator/led/control") {
     if (message == "ON") {
       digitalWrite(ledPin, HIGH);
     } else if (message == "OFF") {
@@ -38,11 +38,11 @@ void callback(char* topic, byte* payload, unsigned int length) {
     // 실제 핀 상태 읽어서 확인
     int actualState = digitalRead(ledPin);
     if (actualState == HIGH) {
-      client.publish("esp32/led/status", "ON");
+      client.publish("actuator/led/status", "ON");
       Serial.print("LED 상태: ");
       Serial.print(message);
     } else {
-      client.publish("esp32/led/status", "OFF");
+      client.publish("actuator/led/status", "OFF");
       Serial.print("LED 상태: ");
       Serial.print(message);
     }
@@ -67,7 +67,7 @@ void reconnect() {
     Serial.print("MQTT 연결 시도 중...");
     if (client.connect("ESP32_Actuator")) {
       Serial.println(" 연결 성공!");
-      client.subscribe("esp32/control");  // 제어 토픽 구독
+      client.subscribe("actuator/led/control");  // 제어 토픽 구독
     } else {
       Serial.print(" 실패, 재시도 (");
       Serial.print(client.state());

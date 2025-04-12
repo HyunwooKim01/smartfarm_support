@@ -6,6 +6,11 @@
 #include "Sensor_CDS.h"
 #include "Sensor_MQ2.h"
 
+//PIN 번호 설정
+#define DHT_PIN 4
+#define MQ2_PIN 32
+#define CDS_PIN 35
+
 // Wi-Fi 설정
 const char* ssid = "최혁진의 iPhone";
 const char* password = "gurwlsdlWkd123";
@@ -18,9 +23,9 @@ WiFiClient espClient;
 PubSubClient client(espClient);
 
 // 센서 데이터
-Sensor_DHT dhtData;
-Sensor_CDS cdsData;
-Sensor_MQ2 mq2Data;
+Sensor_DHT dhtData(DHT_PIN);
+Sensor_CDS cdsData(CDS_PIN);
+Sensor_MQ2 mq2Data(MQ2_PIN);
 
 void setup_wifi() {
   Serial.print("Wi-Fi 연결 중...");

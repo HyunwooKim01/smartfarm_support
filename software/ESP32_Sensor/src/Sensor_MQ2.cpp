@@ -1,13 +1,13 @@
 #include "Sensor_MQ2.h"
 
-#define MQ2_PIN 32
+Sensor_MQ2::Sensor_MQ2(int pin) : PIN_NUM(pin), gas(0) {} 
 
-void read_MQ2(Sensor_MQ2& data) {
-    float g = analogRead(MQ2_PIN);
+void Sensor_MQ2::read() {
+    int g = analogRead(PIN_NUM);
 
     if (isnan(g)) {
-        Serial.println("MQ2 센서 데이터 오류");
+        Serial.println("[MQ2 센서] 데이터 오류");
         return;
     }
-    data.gas = g;
+    gas = g;
 }
