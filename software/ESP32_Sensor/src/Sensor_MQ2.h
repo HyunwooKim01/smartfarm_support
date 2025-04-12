@@ -1,8 +1,10 @@
 #pragma once
 #include <Arduino.h>
 
-struct Sensor_MQ2 {
-    float gas;
-};
-
-void read_MQ2(Sensor_MQ2& data);
+class Sensor_MQ2{
+    private:
+        int gas, PIN_NUM;
+    public:
+        Sensor_MQ2(int pin);
+        void read();
+}

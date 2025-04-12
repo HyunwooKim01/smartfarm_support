@@ -1,24 +1,24 @@
 #include "Sensor_DHT.h"
 
-#define DHT_PIN 4
-DHT dht(DHT_PIN, DHT11);
+Sensor_DHT::Sensor_DHT(int pin) : PIN_NUM(pin), humidity(0), temperature(0), dht(pin, DHT11) {}
 
-void init_DHT() {
+void Sensor_DHT::init_DHT() {
     dht.begin();
 }
 
-void read_DHT(Sensor_DHT& data) {
-    float h = dht.readHumidity();
-    float t = dht.readTemperature();
+void Sensor_DHT::read() {
+    int h = dht.readHumidity();
+    int t = dht.readTemperature();
 
     if (isnan(h)) {
-        Serial.println("DHT 습도 센서 데이터 오류");
-        h = 0.0;
+        Serial.println("[DHT 센서] 데이터 오류(습도)");
+        h = 0;
+    }
     if (isnan(t)) {
-        Serial.println("DHT 온도 센서 데이터 오류");
-        t = 0.0;
+        Serial.println("[DHT 센서] 데이터 오류(온도)");
+        t = 0;
     }
 
-    data.humidity = h;
-    data.temperature = t;
+    humidity = h;
+    temperature = t;
 }

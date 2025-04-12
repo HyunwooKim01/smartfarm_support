@@ -2,10 +2,13 @@
 #include <Arduino.h>
 #include <DHT.h>
 
-struct Sensor_DHT {
-    float humidity;
-    float temperature;
-};
-
-void init_DHT();
-void read_DHT(Sensor_DHT& data);
+class Sensor_DHT{
+    private:
+        int humidity, temperature, PIN_NUM;
+        DHT dht;
+    
+    public:
+        Sensor_DHT(int pin);
+        void init_DHT();
+        void read();
+}
