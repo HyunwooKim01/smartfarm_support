@@ -11,3 +11,7 @@ void Sensor_MQ2::read() {
     }
     gas = g;
 }
+
+int Sensor_MQ2::getValue(){
+    return gas;
+}

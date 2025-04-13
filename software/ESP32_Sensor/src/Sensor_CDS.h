@@ -3,11 +3,10 @@
 
 class Sensor_CDS {
     private:
-        int cds;
-        int PIN_NUM;
-        int error_count;
+        int cds, PIN_NUM;
 
     public:
         Sensor_CDS(int pin);
         void read();
+        int getValue();
 };

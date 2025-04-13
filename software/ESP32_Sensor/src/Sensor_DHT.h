@@ -11,4 +11,7 @@ class Sensor_DHT{
         Sensor_DHT(int pin);
         void init_DHT();
         void read();
-}
+        int getTempValue();
+        int getHumValue();
+        
+};
