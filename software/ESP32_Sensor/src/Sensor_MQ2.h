@@ -7,4 +7,5 @@ class Sensor_MQ2{
     public:
         Sensor_MQ2(int pin);
         void read();
-}
+        int getValue();
+};

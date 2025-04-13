@@ -22,3 +22,11 @@ void Sensor_DHT::read() {
     humidity = h;
     temperature = t;
 }
+
+int Sensor_DHT::getTempValue(){
+    return temperature;
+}
+
+int Sensor_DHT::getHumValue(){
+    return humidity;
+}

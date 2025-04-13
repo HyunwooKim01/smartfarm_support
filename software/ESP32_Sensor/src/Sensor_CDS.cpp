@@ -10,3 +10,7 @@ void Sensor_CDS::read() {
     }
     cds = c;
 }
+
+int Sensor_CDS::getValue(){
+    return cds;
+}
