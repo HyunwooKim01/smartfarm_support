@@ -7,9 +7,9 @@
 #include "Wifi_Control.h"
 
 //센서 헤더들
-#include "Sensor_DHT.h"
-#include "Sensor_CDS.h"
-#include "Sensor_MQ2.h"
+#include "sensors/Sensor_DHT.h"
+#include "sensors/Sensor_CDS.h"
+#include "sensors/Sensor_MQ2.h"
 
 //PIN 번호 설정
 #define DHT_PIN 4
